@@ -48,6 +48,9 @@
 	  </div>
 	</nav>
 	{{-- end navigation --}}
+	@section('message')
+	
+	@show
 	<div class="container">
     	@yield('content')
     </div>

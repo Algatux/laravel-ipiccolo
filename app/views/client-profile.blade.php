@@ -14,6 +14,14 @@
 	    <li>
 	@stop
 
+	@if (Session::has('message'))
+		@section('message')
+			<div class="alert alert-success fade in top-50 pos-fixed max-width">
+		        <b>Messaggio:</b> {{ Session::get('message') }} <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		    </div>
+		@stop
+	@endif
+
 	@section('content')
 		<div class="page-header">
 			<h1>{{ $client->name }} {{ ($client->nikname) ? "<i style=\"font-size:28px;\">{".$client->nikname."}</i>" : '' }} {{ $client->surname }} &nbsp; 

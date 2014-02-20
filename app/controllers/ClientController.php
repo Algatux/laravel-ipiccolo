@@ -33,7 +33,7 @@ class ClientController extends \BaseController {
 		if(Request::ajax())
 			return Response::json($client->toArray());
 		else
-			return View::make('client-profile', compact('client'));
+			return View::make('client-profile', compact('client','message'));
 	}
 
 	public function clientInsert(){
@@ -42,12 +42,15 @@ class ClientController extends \BaseController {
 
 	public function clientAdd(){
 		$client = new Client;
-		$client->name = Input::get('name','undefined');
-		$client->surname = Input::get('surname','undefined');
+		$client->name = ucwords(strtolower(Input::get('name','undefined')));
+		$client->surname = ucwords(strtolower(Input::get('surname','undefined')));
+		$client->nikname = ucwords(strtolower(Input::get('nikname',NULL)));
+
 		$client->phone = Input::get('phone',NULL);
 		$client->mobilephone = Input::get('mobilephone',NULL);
-		$client->nikname = Input::get('nikname',NULL);
+
 		$client->note = Input::get('note',NULL);
+		
 		$client->save();
 		return Redirect::to('client/profile/'.$client->id)->with('message', 'Cliente Aggiunto');
 	}

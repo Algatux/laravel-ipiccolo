@@ -21,13 +21,13 @@
 				</div>
 				
 
-				<div class="form-element input-group input-group-sm">
+				<div class="form-element input-group input-group-sm has-error has-feedback">
 					<span class="input-group-addon fixed-size-medium">Cognome</span>
 					<input type="text" name="surname" class="form-control" placeholder="Inserisci il cognome">
-					<span class="input-group-addon back"></span>
+					<span class="input-group-addon back">&#10008;</span>
 				</div>
 
-				<div class="form-element input-group input-group-sm has-error has-feedback">
+				<div class="form-element input-group input-group-sm has-warning has-feedback">
 					<span class="input-group-addon fixed-size-medium">Soprannome</span>
 					<input type="text" name="nikname" class="form-control" placeholder="Inserisci il soprannome, se ne possiede uno">
 					<span class="input-group-addon back">&#9888;</span>

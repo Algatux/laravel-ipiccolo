@@ -10,7 +10,7 @@
 	        <a href="/client/new"><span class="glyphicon glyphicon-plus"></span> Aggiungi</button></a>
 	    <li>
 	@stop
-
+	
 	@section('content')
 		<div class="welcome page-header">
 			<h1>iPiccolo <small>Gestionale Clienti</small></h1>
@@ -19,7 +19,7 @@
 		<div class="search-filter-box input-group">
 			<span class="input-group-addon">Filtra Clienti</span>
 			<input type="search" id="clients-filter" class="form-control" placeholder="inserisci un nome">
-			<span class="input-group-addon clear-search" id="clear-search">X</span>
+			<span class="input-group-addon clear-search" id="clear-search">&#9003;</span>
 		</div>
 		<div class="client-list">
 			<div class="client template"></div>

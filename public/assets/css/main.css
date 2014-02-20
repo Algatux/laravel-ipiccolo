@@ -44,17 +44,29 @@ body{
  * 
  */
 
+/* Positions  */
+.top-50{
+	top: 50px;
+}
+.pos-fixed{
+	position: fixed;
+}
+.max-width{
+	width: 100%;
+}
+
+/* Elements */
+.container{
+	margin-top : 50px;
+	padding: 20px;
+}
+
 .template{
 	display: none;
 }
 
 .blue-color{
 	background-color: #5c69c7;	
-}
-
-.container{
-	margin-top : 50px;
-	padding: 20px;
 }
 
 .search-filter-box{
