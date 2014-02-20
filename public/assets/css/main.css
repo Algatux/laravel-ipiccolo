@@ -1,0 +1,92 @@
+body{
+	background-color: #ffffff;
+	color: #333333;
+}
+
+/**
+ *
+ *	Bootstrap ovverrides
+ * 
+ */
+.navbar-default {
+	background-color: #f8f8f8;
+	background-color: rgba(250,250,250,0.9);
+	border-color: #e7e7e7;
+}
+
+.navbar-default li:hover{
+	background-color: #5c69c7;
+}
+
+.navbar-default li.add:hover{
+	background-color: #18d915;
+}
+
+.navbar-default li.modify:hover{
+	background-color: #f0ad4e;
+}
+
+.navbar-default li.delete:hover{
+	background-color: #d9534f;
+}
+
+.navbar-default .navbar-nav>li:hover>a{
+	color: #ffffff;
+}
+
+.badge{
+	min-width: 60px;
+}
+
+/**
+ *
+ *	Styles
+ * 
+ */
+
+.template{
+	display: none;
+}
+
+.blue-color{
+	background-color: #5c69c7;	
+}
+
+.container{
+	margin-top : 50px;
+	padding: 20px;
+}
+
+.search-filter-box{
+	margin-top : 20px;	
+}
+	.search-filter-box > .clear-search{
+		cursor: pointer;
+	}
+
+.form-element {
+	margin-bottom: 10px;
+}
+
+.client-list{
+	margin-top : 20px;
+}
+	.client{
+		margin-bottom : 4px;
+		padding : 4px;
+		background-color: #f8f8f8;
+		border: 1px solid #f2f2f2;
+		border-radius: 4px;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		-moz-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+	.client:hover{
+		background-color: #5c69c7;
+		color: #ffffff;	
+		cursor: pointer;
+	}
