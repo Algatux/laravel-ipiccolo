@@ -2,7 +2,7 @@
 
 	@section('buttons')
 		<li class="">
-	        <a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Annulla</button></a>
+	        <a href="javascript:history.back();"><span class="glyphicon glyphicon-arrow-left"></span> Annulla</button></a>
 	    <li>
 	@stop
 

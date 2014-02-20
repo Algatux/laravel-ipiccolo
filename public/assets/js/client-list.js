@@ -33,7 +33,8 @@ $(document).ready(function(){
 	});
 
 	clear_search.click(function(){
-		search_box.val('').trigger('blur');
+		//search_box.val('').trigger('blur');
+		window.location.reload(true);
 	});
 
 	function createClientRow(client){

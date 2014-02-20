@@ -46,8 +46,10 @@ class ClientController extends \BaseController {
 		$client->surname = Input::get('surname','undefined');
 		$client->phone = Input::get('phone',NULL);
 		$client->mobilephone = Input::get('mobilephone',NULL);
+		$client->nikname = Input::get('nikname',NULL);
+		$client->note = Input::get('note',NULL);
 		$client->save();
-		return var_dump($client->toArray());
+		return Redirect::to('client/profile/'.$client->id)->with('message', 'Cliente Aggiunto');
 	}
 
 	public function clientUpdate($clientid){
