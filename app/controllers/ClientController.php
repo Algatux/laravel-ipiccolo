@@ -17,7 +17,7 @@ class ClientController extends \BaseController {
 	public function search(){
 		$searchParameter = Input::get('key');
 		$searchParameter .= '%';
-
+		
 		$search = Client::where('name', 'LIKE', $searchParameter)
 					->orWhere('surname', 'LIKE', $searchParameter)
 					->orWhere('nikname', 'LIKE', $searchParameter)

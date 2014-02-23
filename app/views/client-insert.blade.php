@@ -1,42 +1,47 @@
 @extends('layouts.main')
 
+	@section('scripts')
+		@parent
+				<script type="text/javascript" src="{{ asset('packages/validation/jquery.validate.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/client-insert.js') }}"></script>
+	@stop
+
 	@section('buttons')
 		<li class="">
 	        <a href="javascript:history.back();"><span class="glyphicon glyphicon-arrow-left"></span> Annulla</button></a>
 	    <li>
 	@stop
-
+	
 	@section('content')
 		<div class="welcome page-header">
 			<h1>Nuovo Cliente <small>Inserimento</small></h1>
 			Crea un nuovo cliente compilando il form.
 		</div>
 		<div id="client-insert-form">
-			{{ Form::open(array('action'=>'ClientController@clientAdd')) }}
+			{{ Form::open(array('action'=>'ClientController@clientAdd', 'id'=>'client-form')) }}
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Nome</span>
 					<input type="text" name="name" class="form-control" placeholder="Inserisci il nome">
 					<span class="input-group-addon back"></span>
-				</div>
-				
+				</div>				
 
-				<div class="form-element input-group input-group-sm has-error has-feedback">
+				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon fixed-size-medium">Cognome</span>
 					<input type="text" name="surname" class="form-control" placeholder="Inserisci il cognome">
-					<span class="input-group-addon back">&#10008;</span>
+					<span class="input-group-addon back"></span>
 				</div>
 
-				<div class="form-element input-group input-group-sm has-warning has-feedback">
+				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon fixed-size-medium">Soprannome</span>
 					<input type="text" name="nikname" class="form-control" placeholder="Inserisci il soprannome, se ne possiede uno">
-					<span class="input-group-addon back">&#9888;</span>
+					<span class="input-group-addon back"></span>
 				</div>
 
-				<div class="form-element input-group input-group-sm has-success has-feedback">
+				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Telefono</span>
 					<input type="text" name="phone" class="form-control" placeholder="Inserisci un numero di telefono">
-					<span class="input-group-addon back">&#10004;</span>
+					<span class="input-group-addon back"></span>
 				</div>
 
 				<div class="form-element input-group input-group-sm">

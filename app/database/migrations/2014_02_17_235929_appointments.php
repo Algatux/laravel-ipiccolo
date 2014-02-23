@@ -16,6 +16,7 @@ class Appointments extends Migration {
 			$table->increments('id');
 			$table->unsignedInteger('client_id');
 			$table->enum('action',array('taglio','colore'))->default('colore');
+			$table->date('date');
 			$table->text('description');
 			$table->softDeletes();
 			$table->timestamps();

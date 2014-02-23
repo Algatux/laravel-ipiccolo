@@ -18,7 +18,7 @@ body{
 	background-color: #5c69c7;
 }
 
-.navbar-default li.add:hover{
+.navbar-default li.add:hover, .navbar-default li.add-nota:hover{
 	background-color: #18d915;
 }
 
@@ -67,6 +67,10 @@ body{
 
 .blue-color{
 	background-color: #5c69c7;	
+}
+
+.antrax-color{
+	background-color: #555555;	
 }
 
 .search-filter-box{

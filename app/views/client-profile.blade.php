@@ -6,6 +6,9 @@
 	@stop
 
 	@section('buttons')
+		<li class="add-nota" id="add-taglio">
+	        <a href="#"><span class="glyphicon glyphicon-plus"></span> Taglio/Colore</button></a>
+	    <li>
 		<li class="modify" id="modify-client">
 	        <a href="#"><span class="glyphicon glyphicon-pencil"></span> Modifica</button></a>
 	    <li>
@@ -37,12 +40,60 @@
 		<div class="appointments-list">
 			<h4>Elenco Tagli / Colori</h4>
 			<div class="appointment template"></div>
-			@foreach ($client->appointments as $app)
-				<div class="appointment">
-					<span class="badge">{{ $app->created_at->format('d-m-Y')}}</span>
-					<span class="badge blue-color">{{{ $app->action }}}</span>  
-					{{{ $app->description}}}
-				</div>	
-			@endforeach
+			<ul class="list-group">
+			  	@foreach ($client->appointments as $app)
+					<li class="list-group-item">
+						
+						<h4 class="list-group-item-heading">
+						{{{ ucfirst($app->action) }}}
+						<small> - {{ $app->created_at->format('d/m/Y')}}</small>
+						<button class="btn btn-danger pull-right">Delete</button>
+						</h4>
+						<p class="list-group-item-text">{{{ $app->description}}}</p>
+						
+					</li>
+				@endforeach
+			</ul>
+		</div>
+	@stop
+
+	@section('modal')
+		<!-- Modal -->
+		<div class="modal fade" id="modal-taglio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Nuovo Taglio/Colore</h4>
+		      </div>
+		      <div class="modal-body">
+		      	{{ Form::open(array('action'=>'ClientController@clientAdd', 'id'=>'client-form', 'role'=>'form')) }}
+
+		      		<div class="form-element input-group input-group-sm">
+		      			<select name="action" class="form-control" style="width: 250px;">
+		      				<option value="colore">Colore</option>
+		      				<option value="taglio">Taglio</option>
+		      			</select>
+		      		</div>
+
+		      		<div class="form-element input-group input-group-sm">
+		      				<span class="input-group-addon">Data</span>
+							<input type="text" name="date" class="form-control" placeholder="Data" value="{{ date('d/m/y') }}">
+							<span class="input-group-addon"></span>
+		      		</div>
+
+					<div class="form-element input-group input-group-sm">
+						<span class="input-group-addon">Descrizione</span>
+						<input type="text" name="description" class="form-control" placeholder="Inserisci le tue note">
+						<span class="input-group-addon"></span>
+					</div>  
+
+			    {{ Form::close() }}
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default closeAction" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary saveAction">Salva</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	@stop

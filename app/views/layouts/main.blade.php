@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>iPiccolo Gest</title>
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('packages/bootstrap/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/js/jquery-2.1.0.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
 	@section('scripts')
 		{{-- additional scripts --}}
 	@show
@@ -54,5 +54,8 @@
 	<div class="container">
     	@yield('content')
     </div>
+    @section('modal')
+    
+    @show
 </body>
 </html>
