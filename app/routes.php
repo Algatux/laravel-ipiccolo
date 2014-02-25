@@ -40,7 +40,7 @@ Route::group(array('prefix'=>'client'), function(){
 // Appointments => appointment
 Route::group(array('prefix'=>'appointment'), function(){
 
-	Route::post('/add/{clientid}',array('before' => 'csrf','as'=>'app-add','uses'=>'AppointmentsController@index'));
+	Route::post('/add/{clientid}',array('before' => 'csrf','as'=>'app-add','uses'=>'AppointmentsController@addAppointment'));
 
 });
 
