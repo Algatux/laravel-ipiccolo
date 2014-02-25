@@ -1,11 +1,19 @@
 $(document).ready(function(){
 
+	var save_action = false;
+	var client_id = $('span#client-id','div.container div.page-header').text();
+
 	modal_form_shared_options = {
 		keyboard: true
 	};
+	
 
 	var modal_form = $('#modal-taglio');
 	var modal_delete = $('#modal-delete');
+
+	modal_form.on('hidden.bs.modal', function () {
+    	if(save_action) window.location.reload(true);	
+	});
 
 	var alert = $(".alert");
 	if(alert){
@@ -38,7 +46,34 @@ $(document).ready(function(){
 	});
 
 	save_button.click(function(){
-		window.alert('insert or update');
+		var form_data = modal_form.find('form').serialize();
+		$.ajax({
+				url: '/appointment/add/'+client_id,
+				data: form_data,
+				dataType: 'json',
+				type: 'POST',
+				cache:false,
+				success:function(data){
+					save_action = true;
+					save_button.removeAttr('disabled','disabled');
+					hideSpinner();	
+				},
+				error:function(jqXHR, textStatus, errorThrown ){},
+				beforeSend:function(jqXHR, settings){
+					showSpinner();
+					save_button.attr('disabled','disabled');	
+				},
+				complete:function(jqXHR, textStatus){
+					modal_form.modal('hide');
+				}
+			});
 	});
+
+	function showSpinner(){
+		$(".loading-spinner").fadeTo(500, 1);
+	}
+	function hideSpinner(){
+		$(".loading-spinner").fadeTo(500, 0);
+	}
 
 });

@@ -27,6 +27,7 @@
 
 	@section('content')
 		<div class="page-header">
+			<span id="client-id" class="hidden">{{ $client->id }}</span>
 			<h1>{{ $client->name }} {{ ($client->nikname) ? "<i style=\"font-size:28px;\">{".$client->nikname."}</i>" : '' }} {{ $client->surname }} &nbsp; 
 				<small style="font-size:14px;">
 					<span class="glyphicon glyphicon-earphone" /> {{{ $client->phone or '---' }}} - 
@@ -47,7 +48,7 @@
 						<h4 class="list-group-item-heading">
 						{{{ ucfirst($app->action) }}}
 						<small> - {{ $app->created_at->format('d/m/Y')}}</small>
-						<button class="btn btn-danger pull-right">Delete</button>
+						<button class="btn btn-danger pull-right">Cancella</button>
 						</h4>
 						<p class="list-group-item-text">{{{ $app->description}}}</p>
 						
@@ -78,7 +79,7 @@
 
 		      		<div class="form-element input-group input-group-sm">
 		      				<span class="input-group-addon">Data</span>
-							<input type="text" name="date" class="form-control" placeholder="Data" value="{{ date('d/m/y') }}">
+							<input type="text" name="date" class="form-control" placeholder="Data" value="{{ date('d/m/Y') }}">
 							<span class="input-group-addon"></span>
 		      		</div>
 
@@ -92,6 +93,7 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default closeAction" data-dismiss="modal">Close</button>
 		        <button type="button" class="btn btn-primary saveAction">Salva</button>
+		        <div class="loading-spinner pull-right"></div>
 		      </div>
 		    </div>
 		  </div>
