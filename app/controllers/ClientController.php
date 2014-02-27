@@ -68,11 +68,13 @@ class ClientController extends \BaseController {
 		$searchParameter = Input::get('key');
 		$searchParameter .= '%';
 		
-		$search = Client::where('name', 'LIKE', $searchParameter)
-					->orWhere('surname', 'LIKE', $searchParameter)
-					->orWhere('nikname', 'LIKE', $searchParameter)
+		$search = Client::where(function($query) use ($searchParameter){
+						$query->where('name', 'LIKE', $searchParameter)
+							->orWhere('surname', 'LIKE', $searchParameter)
+							->orWhere('nikname', 'LIKE', $searchParameter);
+					})
 					->orderBy('surname', 'ASC')
-					->orderBy('name', 'ASC')->get();
+					->orderBy('name', 'ASC')->get(array('id','name','surname','nikname'));
 		return Response::json($search);
 	}
 

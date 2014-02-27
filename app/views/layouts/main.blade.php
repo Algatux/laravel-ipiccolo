@@ -32,8 +32,8 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Database <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="#"><span class="glyphicon glyphicon glyphicon-cloud-download" /> Esporta</a></li>
-	            <li><a href="#"><span class="glyphicon glyphicon glyphicon-cloud-upload" /> Importa</a></li>
+	            <li><a href="{{ route('db-export') }}" target="_blank"><span class="glyphicon glyphicon glyphicon-cloud-download"></span> Esporta</a></li>
+	            <li><a href="{{ route('db-import') }}"><span class="glyphicon glyphicon glyphicon-cloud-upload"></span> Importa</a></li>
 	            <li class="divider"></li>
 	            <li><a href="#">
 	            	<button type="button" class="btn btn-danger">
