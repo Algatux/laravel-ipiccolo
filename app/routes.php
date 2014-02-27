@@ -8,6 +8,7 @@
 
 Route::pattern('id', '[0-9]+');
 Route::pattern('clientid', '[A-Za-z0-9]+');
+Route::pattern('appid', '[A-Za-z0-9]+');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,6 +43,7 @@ Route::group(array('prefix'=>'client'), function(){
 Route::group(array('prefix'=>'appointment'), function(){
 
 	Route::post('add/{clientid}',array('before' => 'csrf','as'=>'app-add','uses'=>'AppointmentsController@addAppointment'));
+	Route::get('delete/{appid}',array('as'=>'app-delete','uses'=>'AppointmentsController@deleteAppointment'));
 
 });
 

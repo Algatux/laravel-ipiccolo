@@ -2,11 +2,6 @@
 
 class AppointmentsController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
 	public function addAppointment($clientid)
 	{
 		$appointment = new Appointment;
@@ -23,6 +18,14 @@ class AppointmentsController extends \BaseController {
 		$appointment->save();
 
 		return Response::json($appointment, 200);
+	}
+
+	public function deleteAppointment($appid){
+		$appointment = Appointment::findOrFail($appid);
+		$clientid = $appointment->client_id;
+		$appointment->delete();
+
+		return Redirect::route('client-profile',$clientid);
 	}
 
 }

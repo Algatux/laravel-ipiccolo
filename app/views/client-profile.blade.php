@@ -44,11 +44,11 @@
 			<ul class="list-group">
 			  	@foreach ($client->appointments as $app)
 					<li class="list-group-item">
-						
+						<span class="hidden app-id">{{ $app->id }}</span>
 						<h4 class="list-group-item-heading">
 						{{{ ucfirst($app->action) }}}
 						<small> - {{ $app->created_at->format('d/m/Y')}}</small>
-						<button class="btn btn-danger pull-right">Cancella</button>
+						<button class="btn btn-danger pull-right delete-app">Cancella</button>
 						</h4>
 						<p class="list-group-item-text">{{{ $app->description}}}</p>
 						

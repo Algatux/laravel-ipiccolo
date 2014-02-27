@@ -77,4 +77,13 @@ $(document).ready(function(){
 		$(".loading-spinner").fadeTo(500, 0);
 	}
 
+	var app_del_list = $('button.delete-app','div.appointments-list');
+	$.each(app_del_list,function(index,obj){
+		var app_id = $(obj).parent().parent().find('span.app-id').text();
+		$(obj).click(function(){
+			if(confirm('Vuoi eliminare l\'appuntamento?'))
+				window.location.href='/appointment/delete/'+app_id;
+		});
+	});
+
 });
