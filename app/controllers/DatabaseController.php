@@ -112,6 +112,9 @@ class DatabaseController extends \BaseController {
 				'numero_clienti' => count($clients),
 				'numero_app' => count($apps)
 			);
+			File::delete($zip_path."import/clients.json");
+			File::delete($zip_path."import/appointments.json");
+			File::deleteDirectory($zip_path."import");
 		return View::make('db-import-execute',$params)->with(compact('client'));
 
 		}else
