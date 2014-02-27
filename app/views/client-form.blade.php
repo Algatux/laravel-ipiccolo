@@ -3,7 +3,7 @@
 	@section('scripts')
 		@parent
 				<script type="text/javascript" src="{{ asset('packages/validation/jquery.validate.min.js') }}"></script>
-		<script type="text/javascript" src="{{ asset('assets/js/client-insert.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/js/client-form.js') }}"></script>
 	@stop
 
 	@section('buttons')
@@ -14,45 +14,45 @@
 	
 	@section('content')
 		<div class="welcome page-header">
-			<h1>Nuovo Cliente <small>Inserimento</small></h1>
+			<h1>{{ $title }} <small>{{ $subtitle }}</small></h1>
 			Crea un nuovo cliente compilando il form.
 		</div>
 		<div id="client-insert-form">
-			{{ Form::open(array('action'=>'ClientController@clientAdd', 'id'=>'client-form')) }}
-
+			{{ Form::model($client, array('route' => array($route,$client->id))) }}
+				
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Nome</span>
-					<input type="text" name="name" class="form-control" placeholder="Inserisci il nome">
+					{{ Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'Inserisci il nome')) }}
 					<span class="input-group-addon back"></span>
 				</div>				
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon fixed-size-medium">Cognome</span>
-					<input type="text" name="surname" class="form-control" placeholder="Inserisci il cognome">
+					{{ Form::text('surname', null, array('class'=>'form-control', 'placeholder'=>'Inserisci il cognome')) }}
 					<span class="input-group-addon back"></span>
 				</div>
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon fixed-size-medium">Soprannome</span>
-					<input type="text" name="nikname" class="form-control" placeholder="Inserisci il soprannome, se ne possiede uno">
+					{{ Form::text('nikname', null, array('class'=>'form-control', 'placeholder'=>'Inserisci il soprannome, se ne possiede uno')) }}
 					<span class="input-group-addon back"></span>
 				</div>
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Telefono</span>
-					<input type="text" name="phone" class="form-control" placeholder="Inserisci un numero di telefono">
+					{{ Form::text('phone', null, array('class'=>'form-control', 'placeholder'=>'Inserisci un numero di telefono')) }}
 					<span class="input-group-addon back"></span>
 				</div>
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Cellulare</span>
-					<input type="text" name="mobilephone" class="form-control" placeholder="Inserisci un numero di cellulare">
+					{{ Form::text('mobilephone', null, array('class'=>'form-control', 'placeholder'=>'Inserisci un numero di cellulare')) }}
 					<span class="input-group-addon back"></span>
 				</div>
 
 				<div class="form-element input-group input-group-sm">
 					<span class="input-group-addon">Note</span>
-					<input type="text" name="note" class="form-control" placeholder="Inserisci eventuali note">
+					{{ Form::text('note', null, array('class'=>'form-control', 'placeholder'=>'Inserisci eventuali note')) }}
 					<span class="input-group-addon back"></span>
 				</div>
 

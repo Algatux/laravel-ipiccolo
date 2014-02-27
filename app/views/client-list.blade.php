@@ -24,7 +24,7 @@
 		<div class="client-list">
 			<div class="client template"></div>
 			@foreach ($clients as $client)
-				<div class="client" id="{{ $client->id }}" onClick="javascript:window.location.href='client/profile/{{ $client->id }}'">
+				<div class="client" id="{{ $client->id }}" onClick="javascript:window.location.href='{{ route('client-profile',$client->id) }}'">
 					{{ $client->surname }} {{ $client->name }} {{ ($client->nikname) ? "<i>{".$client->nikname."}</i>" : '' }}
 				</div>	
 			@endforeach

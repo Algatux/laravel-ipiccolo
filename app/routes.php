@@ -29,8 +29,9 @@ Route::group(array('prefix'=>'client'), function(){
 	Route::get('/profile/{clientid}',array('as'=>'client-profile','uses'=>'ClientController@clientProfile'));
 	Route::get('/delete/{clientid}',array('as'=>'client-delete','uses'=>'ClientController@deleteClient'));
 	Route::get('/new',array('as'=>'client-add','uses'=>'ClientController@clientInsert'));
+	Route::get('/modify/{clientid}',array('as'=>'client-modify','uses'=>'ClientController@clientModify'));
 
-	Route::post('/search', array('as'=>'client-all','uses'=>'ClientController@search'));
+	Route::post('/search', array('as'=>'client-search','uses'=>'ClientController@search'));
 	Route::post('/add',array('before' => 'csrf','as'=>'client-add','uses'=>'ClientController@clientAdd'));
 	Route::post('/update/{clientid}',array('as'=>'client-update','uses'=>'ClientController@clientUpdate'));
 

@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'development' => array('MacBookPro13.local'),
+	'development' => array('MacBookPro13.local','packer-virtualbox'),
 
 ));
 

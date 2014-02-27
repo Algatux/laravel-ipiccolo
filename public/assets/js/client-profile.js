@@ -37,12 +37,13 @@ $(document).ready(function(){
 	});
 
 	mod_button.click(function(){
-		//modal_form.find('.modal-title').text('Modifica');
-		//modal_form.modal(modal_form_shared_options);
+		window.location.href= '/client/modify/'+client_id;
 	});
 
 	del_button.click(function(){
-		window.alert('elimina');
+		if(confirm('Vuoi eliminare il cliente ?')){
+			window.location.href= '/client/delete/'+client_id;
+		}
 	});
 
 	save_button.click(function(){

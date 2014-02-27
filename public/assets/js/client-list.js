@@ -45,7 +45,7 @@ $(document).ready(function(){
 		if(client.nikname)
 			newLine.append(' <i>{'+client.nikname+'}</i>');
 		newLine.click(function(){
-			window.location.href='client/profile/'+client.id;
+			window.location.href='/client/profile/'+client.id;
 		});
 		client_list.append(newLine);
 	}
