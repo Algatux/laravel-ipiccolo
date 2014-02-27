@@ -2,6 +2,7 @@ app/config/development/*
 bootstrap/compiled.php
 vendor
 public/tmp
+artisan
 composer.phar
 composer.lock
 .env.local.php
