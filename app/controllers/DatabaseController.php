@@ -24,11 +24,6 @@ class DatabaseController extends \BaseController {
 		$zip->addFromString("clients.json", $clients->toJson()) or die ("ERROR: Could not add json clienti");
 		$zip->addFromString("appointments.json", $appointments->toJson()) or die ("ERROR: Could not add json appuntamenti");
 		$zip->close();
-		
-		// header('Content-type: application/zip');
-		// header('Content-Disposition: attachment; filename="'.$zip_name.'"');
-		// readfile($zip_path);
-		// unlink($zip_path);
 
         return Response::download($zip_path.$zip_name, $zip_name);
 	}
@@ -69,10 +64,16 @@ class DatabaseController extends \BaseController {
 			$zip->extractTo($zip_path."import");
 			$zip->close();
 			unlink($zip_path.$orig_name);
-			// Inserting clients
-			$clients = json_decode(File::get($zip_path."import/clients.json"));
+
+			if(!File::exists($zip_path."import/clients.json") || !File::exists($zip_path."import/appointments.json"))
+				return "Package content is not valid!!";
+			
+			// Deleteactual records
 			DB::table('appointments')->delete();
 			DB::table('clients')->delete();
+
+			// Starting Insert
+			$clients = json_decode(File::get($zip_path."import/clients.json"));
 			foreach ($clients as $obj) {
 				$client = new Client;
 				$client->id = $obj->id;
@@ -92,6 +93,7 @@ class DatabaseController extends \BaseController {
 				$client->save();
 				$client = null;
 			}
+
 			$apps = json_decode(File::get($zip_path."import/appointments.json"));
 			foreach ($apps as $obj) {
 				$app = new Appointment;
