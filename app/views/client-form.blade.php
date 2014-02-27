@@ -2,7 +2,7 @@
 
 	@section('scripts')
 		@parent
-				<script type="text/javascript" src="{{ asset('packages/validation/jquery.validate.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('packages/validation/jquery.validate.min.js') }}"></script>
 		<script type="text/javascript" src="{{ asset('assets/js/client-form.js') }}"></script>
 	@stop
 

@@ -50,7 +50,8 @@ Route::group(array('prefix'=>'db'), function(){
 
 	Route::get('export',array('as'=>'db-export','uses'=>'DatabaseController@export'));
 	Route::get('import',array('as'=>'db-import','uses'=>'DatabaseController@import'));
+	Route::get('erase',array('as'=>'db-erase','uses'=>'DatabaseController@erase'));
 
-	Route::post('import-execute',array('as'=>'db-import-execute','uses'=>'DatabaseController@importExecute'));
+	Route::post('import-execute',array('before' => 'csrf','as'=>'db-import-execute','uses'=>'DatabaseController@importExecute'));
 
 });

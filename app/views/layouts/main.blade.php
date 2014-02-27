@@ -35,7 +35,7 @@
 	            <li><a href="{{ route('db-export') }}" target="_blank"><span class="glyphicon glyphicon glyphicon-cloud-download"></span> Esporta</a></li>
 	            <li><a href="{{ route('db-import') }}"><span class="glyphicon glyphicon glyphicon-cloud-upload"></span> Importa</a></li>
 	            <li class="divider"></li>
-	            <li><a href="#">
+	            <li><a href="javascript:if(confirm('Vuoi svuotare il database?')) window.location.href='{{ route('db-erase') }}'">
 	            	<button type="button" class="btn btn-danger">
 						<span class="glyphicon glyphicon-trash" /> Svuota
 				  	</button>
