@@ -69,9 +69,9 @@ class ClientController extends \BaseController {
 		$searchParameter .= '%';
 		
 		$search = Client::where(function($query) use ($searchParameter){
-						$query->where('name', 'LIKE', $searchParameter)
-							->orWhere('surname', 'LIKE', $searchParameter)
-							->orWhere('nikname', 'LIKE', $searchParameter);
+						$query->where('name', 'LIKE', '%'.$searchParameter.'%')
+							->orWhere('surname', 'LIKE', '%'.$searchParameter.'%')
+							->orWhere('nikname', 'LIKE', '%'.$searchParameter.'%');
 					})
 					->orderBy('surname', 'ASC')
 					->orderBy('name', 'ASC')->get(array('id','name','surname','nikname'));

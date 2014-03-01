@@ -60,6 +60,7 @@ $(document).ready(function(){
 				cache:false,
 				success:function(data){
 					if(data.length){
+						client_list.children().remove();
 						$.each(data,function(index,client){
 							createClientRow(client);
 						});
